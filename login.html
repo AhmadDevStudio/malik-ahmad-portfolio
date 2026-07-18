@@ -24,12 +24,7 @@
           <input type="email" id="email" placeholder="Enter your email" />
 
           <label for="password">Password</label>
-          <div class="password-field">
-            <input type="password" id="password" placeholder="Enter your password" />
-            <button type="button" class="password-toggle" id="togglePassword" aria-label="Show password">
-              <i class="fa-solid fa-eye"></i>
-            </button>
-          </div>
+          <input type="password" id="password" placeholder="Enter your password" />
 
           <div class="options">
             <label class="remember">
@@ -54,47 +49,6 @@
         </form>
       </div>
     </div>
-    <script>
-      const form = document.getElementById('loginForm');
-      const emailInput = document.getElementById('email');
-      const passwordInput = document.getElementById('password');
-      const messageBox = document.getElementById('formMessage');
-      const togglePassword = document.getElementById('togglePassword');
-      const googleButton = document.getElementById('googleSignInBtn');
-
-      togglePassword.addEventListener('click', () => {
-        const isPassword = passwordInput.type === 'password';
-        passwordInput.type = isPassword ? 'text' : 'password';
-        togglePassword.innerHTML = isPassword
-          ? '<i class="fa-solid fa-eye-slash"></i>'
-          : '<i class="fa-solid fa-eye"></i>';
-        togglePassword.setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password');
-      });
-
-      googleButton.addEventListener('click', () => {
-        messageBox.textContent = 'Google sign-in is ready for secure authentication integration.';
-        messageBox.style.color = '#60a5fa';
-      });
-
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        const email = emailInput.value.trim();
-        const password = passwordInput.value.trim();
-
-        if (!email || !password) {
-          messageBox.textContent = 'Please enter both your email and password.';
-          messageBox.style.color = '#fbbf24';
-          return;
-        }
-
-        messageBox.textContent = 'Login successful. Redirecting...';
-        messageBox.style.color = '#34d399';
-
-        setTimeout(() => {
-          window.location.href = 'index.html';
-        }, 600);
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
