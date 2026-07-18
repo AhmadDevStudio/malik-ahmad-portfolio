@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skills | MR. MALIK AHMED</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="skills-page">
+    <button class="back-nav" id="backToMenuBtn" type="button" aria-label="Back to menu">← Back to Menu</button>
+
+    <div class="page-nav-overlay" id="pageNavOverlay"></div>
+    <aside class="page-nav-panel" id="pageNavPanel">
+      <button class="close-nav-btn" id="closePageNavBtn" aria-label="Close menu">×</button>
+      <nav class="page-nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="journey.html">My Journey</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Featured Projects</a>
+        <a href="login.html">Logout</a>
+      </nav>
+    </aside>
+
+    <div class="skills-wrapper">
+      <section class="skills-card">
+        <h1>Skills</h1>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <h3>HTML5</h3>
+            <p>Building structured and semantic web pages using modern HTML5.</p>
+          </article>
+
+          <article class="skill-card">
+            <h3>CSS3</h3>
+            <p>Creating modern layouts, styling, animations, and responsive designs.</p>
+          </article>
+
+          <article class="skill-card">
+            <h3>Responsive Web Design</h3>
+            <p>Developing websites that work smoothly on mobile, tablet, and desktop devices.</p>
+          </article>
+
+          <article class="skill-card">
+            <h3>Frontend Development</h3>
+            <p>Learning and building user-friendly web interfaces.</p>
+          </article>
+
+          <article class="skill-card">
+            <h3>Git &amp; GitHub</h3>
+            <p>Managing projects and learning version control workflows.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      const backToMenuBtn = document.getElementById('backToMenuBtn');
+      const pageNavPanel = document.getElementById('pageNavPanel');
+      const pageNavOverlay = document.getElementById('pageNavOverlay');
+      const closePageNavBtn = document.getElementById('closePageNavBtn');
+
+      function openPageMenu() {
+        pageNavPanel.classList.add('open');
+        pageNavOverlay.classList.add('open');
+      }
+
+      function closePageMenu() {
+        pageNavPanel.classList.remove('open');
+        pageNavOverlay.classList.remove('open');
+      }
+
+      backToMenuBtn.addEventListener('click', openPageMenu);
+      closePageNavBtn.addEventListener('click', closePageMenu);
+      pageNavOverlay.addEventListener('click', closePageMenu);
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          closePageMenu();
+        }
+      });
+    </script>
+  </body>
+</html>

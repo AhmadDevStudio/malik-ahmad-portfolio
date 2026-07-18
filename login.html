@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | MR. MALIK AHMAD Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body class="login-page">
+    <div class="page">
+      <div class="login-card">
+        <div class="brand">
+          <p class="brand-name">MR. MALIK AHMAD</p>
+          <h1>Welcome to MR. MALIK AHMAD's Portfolio</h1>
+          <p class="subtitle">Sign in to explore my portfolio</p>
+        </div>
+
+        <form class="login-form" id="loginForm">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="Enter your email" />
+
+          <label for="password">Password</label>
+          <div class="password-field">
+            <input type="password" id="password" placeholder="Enter your password" />
+            <button type="button" class="password-toggle" id="togglePassword" aria-label="Show password">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+
+          <div class="options">
+            <label class="remember">
+              <input type="checkbox" />
+              <span>Remember Me</span>
+            </label>
+          </div>
+
+          <p class="form-message" id="formMessage"></p>
+          <button type="submit">Login</button>
+
+          <div class="divider"><span>OR</span></div>
+          <button type="button" class="google-btn" id="googleSignInBtn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#4285F4" d="M21.6 12.23c0-.78-.07-1.53-.2-2.25H12v4.26h5.38a4.6 4.6 0 0 1-2 3.02v2.5h3.24c1.9-1.75 2.98-4.33 2.98-7.53Z"></path>
+              <path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.62-2.43l-3.24-2.5c-.9.6-2.04.96-3.38.96-2.6 0-4.8-1.76-5.6-4.12H3.07v2.58A10 10 0 0 0 12 22Z"></path>
+              <path fill="#FBBC05" d="M6.4 13.91A6.02 6.02 0 0 1 6.4 10.1V7.52H3.07a10 10 0 0 0 0 12.78l3.33-2.58Z"></path>
+              <path fill="#EA4335" d="M12 6.08c1.47 0 2.79.5 3.83 1.49l2.87-2.87A9.96 9.96 0 0 0 12 2a10 10 0 0 0-8.93 5.52l3.33 2.58C7.2 7.84 9.4 6.08 12 6.08Z"></path>
+            </svg>
+            Sign in with Google
+          </button>
+        </form>
+      </div>
+    </div>
+    <script>
+      const form = document.getElementById('loginForm');
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.getElementById('password');
+      const messageBox = document.getElementById('formMessage');
+      const togglePassword = document.getElementById('togglePassword');
+      const googleButton = document.getElementById('googleSignInBtn');
+
+      togglePassword.addEventListener('click', () => {
+        const isPassword = passwordInput.type === 'password';
+        passwordInput.type = isPassword ? 'text' : 'password';
+        togglePassword.innerHTML = isPassword
+          ? '<i class="fa-solid fa-eye-slash"></i>'
+          : '<i class="fa-solid fa-eye"></i>';
+        togglePassword.setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password');
+      });
+
+      googleButton.addEventListener('click', () => {
+        messageBox.textContent = 'Google sign-in is ready for secure authentication integration.';
+        messageBox.style.color = '#60a5fa';
+      });
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+
+        if (!email || !password) {
+          messageBox.textContent = 'Please enter both your email and password.';
+          messageBox.style.color = '#fbbf24';
+          return;
+        }
+
+        messageBox.textContent = 'Login successful. Redirecting...';
+        messageBox.style.color = '#34d399';
+
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 600);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me | MR. MALIK AHMAD</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="about-page">
+    <button class="back-nav" id="backToMenuBtn" type="button" aria-label="Back to menu">← Back to Menu</button>
+
+    <div class="page-nav-overlay" id="pageNavOverlay"></div>
+    <aside class="page-nav-panel" id="pageNavPanel">
+      <button class="close-nav-btn" id="closePageNavBtn" aria-label="Close menu">×</button>
+      <nav class="page-nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="journey.html">My Journey</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Featured Projects</a>
+        <a href="login.html">Logout</a>
+      </nav>
+    </aside>
+
+    <div class="about-wrapper">
+      <section class="about-card">
+        <h1>About Me</h1>
+        <h2>MR. MALIK AHMAD</h2>
+        <p>
+          Transforming ideas into responsive digital experiences. I am currently studying
+          Artificial Intelligence while building modern websites using HTML and CSS. By
+          combining creativity, technical skills, and continuous learning, I strive to
+          create clean, responsive, and user-friendly web experiences while growing toward
+          a successful career in software development.
+        </p>
+      </section>
+
+      <section class="focus-card">
+        <h3>My Focus</h3>
+        <div class="focus-list">
+          <span>Artificial Intelligence</span>
+          <span>Responsive Web Design</span>
+          <span>HTML5</span>
+          <span>CSS3</span>
+          <span>Frontend Development</span>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      const backToMenuBtn = document.getElementById('backToMenuBtn');
+      const pageNavPanel = document.getElementById('pageNavPanel');
+      const pageNavOverlay = document.getElementById('pageNavOverlay');
+      const closePageNavBtn = document.getElementById('closePageNavBtn');
+
+      function openPageMenu() {
+        pageNavPanel.classList.add('open');
+        pageNavOverlay.classList.add('open');
+      }
+
+      function closePageMenu() {
+        pageNavPanel.classList.remove('open');
+        pageNavOverlay.classList.remove('open');
+      }
+
+      backToMenuBtn.addEventListener('click', openPageMenu);
+      closePageNavBtn.addEventListener('click', closePageMenu);
+      pageNavOverlay.addEventListener('click', closePageMenu);
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          closePageMenu();
+        }
+      });
+    </script>
+  </body>
+</html>

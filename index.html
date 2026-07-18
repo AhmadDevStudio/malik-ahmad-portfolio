@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Professional portfolio website of MR. MALIK AHMAD" />
+    <meta name="theme-color" content="#111827" />
+    <title>MR. MALIK AHMAD</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body class="home-page">
+    <div class="page-loader" id="pageLoader">
+      <div class="loader-content">
+        <div class="loader-bar"></div>
+        <p>MR. MALIK AHMAD</p>
+      </div>
+    </div>
+
+    <div class="side-menu" id="sideMenu">
+      <button class="close-btn" id="closeMenu" aria-label="Close menu">×</button>
+      <nav class="side-nav">
+        <a href="index.html" class="nav-link" data-page="index">Home</a>
+        <a href="about.html" class="nav-link" data-page="about">About Me</a>
+        <a href="journey.html" class="nav-link" data-page="journey">My Journey</a>
+        <a href="skills.html" class="nav-link" data-page="skills">Skills</a>
+        <a href="projects.html" class="nav-link" data-page="projects">Featured Projects</a>
+        <a href="login.html" class="nav-link" data-page="login">Logout</a>
+      </nav>
+    </div>
+
+    <div class="site-wrapper">
+      <header class="topbar">
+        <button class="menu-btn" id="openMenu" aria-label="Open menu">☰</button>
+        <div class="brand-name">MR. MALIK AHMAD</div>
+      </header>
+
+      <main class="content">
+        <section class="hero-card">
+          <h1>Turning Ideas Into Modern Web Experiences</h1>
+          <p class="hero-subtitle">Learning. Building. Improving.</p>
+          <p class="hero-text">
+            Transforming ideas into responsive digital experiences. I am currently studying
+            Artificial Intelligence while building modern websites using HTML and CSS. By
+            combining creativity, technical skills, and continuous learning, I strive to
+            create clean, responsive, and user-friendly web experiences while growing
+            toward a successful career in software development.
+          </p>
+        </section>
+
+        <section class="connect-card">
+          <div class="connect-content">
+            <div class="connect-text">
+              <h2>Let's Connect</h2>
+              <p>
+                I'm always open to connecting with fellow learners, developers,
+                professionals, and anyone who shares a passion for technology. Whether you
+                have a question, a project idea, or simply want to say hello, I'd be happy
+                to hear from you.
+              </p>
+
+              <div class="contact-list">
+                <div class="contact-item">
+                  <i class="fa-solid fa-phone"></i>
+                  <a href="tel:+923090383007">+92 309 0383007</a>
+                </div>
+                <div class="contact-item">
+                  <i class="fa-solid fa-envelope"></i>
+                  <a href="mailto:malikahmad.aistudent@gmail.com">malikahmad.aistudent@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="social-links">
+                <a href="https://www.facebook.com" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://github.com" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="profile-wrapper">
+              <img src="images/profile.jpeg" alt="MR. MALIK AHMAD" />
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>
+          Thank you for taking the time to explore my portfolio. I truly appreciate your
+          visit and look forward to connecting with you.
+        </p>
+        <p>© 2026 MR. MALIK AHMAD. All Rights Reserved.</p>
+        <p>Designed & Developed by MR. MALIK AHMAD</p>
+      </footer>
+    </div>
+
+    <script>
+      const openMenu = document.getElementById('openMenu');
+      const closeMenu = document.getElementById('closeMenu');
+      const sideMenu = document.getElementById('sideMenu');
+      const pageLoader = document.getElementById('pageLoader');
+
+      openMenu.addEventListener('click', () => {
+        sideMenu.classList.add('open');
+      });
+
+      closeMenu.addEventListener('click', () => {
+        sideMenu.classList.remove('open');
+      });
+
+      document.addEventListener('click', (event) => {
+        if (sideMenu.classList.contains('open') && !sideMenu.contains(event.target) && event.target !== openMenu) {
+          sideMenu.classList.remove('open');
+        }
+      });
+
+      const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
+      document.querySelectorAll('.nav-link').forEach((link) => {
+        if (link.getAttribute('data-page') === currentPage) {
+          link.classList.add('active');
+        }
+      });
+
+      const loaderStorageKey = 'malikPortfolioLoaderSeen';
+      const hasSeenLoader = localStorage.getItem(loaderStorageKey) === 'true';
+
+      if (hasSeenLoader) {
+        pageLoader.classList.add('is-hidden');
+      } else {
+        window.addEventListener('load', () => {
+          setTimeout(() => {
+            pageLoader.classList.add('fade-out');
+            localStorage.setItem(loaderStorageKey, 'true');
+            setTimeout(() => {
+              pageLoader.classList.add('is-hidden');
+            }, 600);
+          }, 800);
+        });
+      }
+    </script>
+  </body>
+</html>
